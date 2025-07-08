@@ -1,0 +1,40 @@
+@import url(../root.css);
+
+.searchForm{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 40px ;
+    width: 20%;
+}
+
+.searchInput{
+    color: #000;
+    font-family: var(--global-font);
+    font-size: var(--p-size);
+    width: 80%;
+    height: 90%;
+    border: 0 none;
+    outline: none;
+    padding-left: 5px;
+
+}
+
+#btnSubmit{
+    width: 40px;
+    height: 100%;
+    padding: 0;
+    margin-left: 1px;
+}
+#btnSubmit:hover{
+    background-color:#0193F4;
+    border-color: #0193F4;
+}
+
+
+#searchIcon{
+    box-shadow: 0;
+    border: 0 none;
+    width: 100%;
+}

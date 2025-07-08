@@ -1,0 +1,12 @@
+@import url(../index.css);
+@import url(../root.css);
+
+.loadingText{
+    font-family: var(--global-font);
+    font-size: var(--p-size);
+}
+.errorText{
+    font-family: var(--global-font);
+    font-size: var(--p-size);
+}
+

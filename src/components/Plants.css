@@ -1,0 +1,33 @@
+@import url('../root.css');
+
+.containerMap {
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    column-gap: 10px;
+    row-gap: 20px;
+    width: 100%
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-around; */
+    width: 15vw;
+    height: 400px;
+    padding: 5px;
+    color: var(--global-font-color);
+    font-family: var(--global-font);
+    background-color: blueviolet;
+}
+.imgCard {
+    width: 14vw;
+    height: 275px;
+}
+.cardTitle{
+    margin: 5px 0 5px 0;
+}
+.cardData{
+    margin: 5px 0 5px 0;
+    text-align: center;
+}
