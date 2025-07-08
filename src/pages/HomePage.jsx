@@ -6,14 +6,17 @@ import { Navigate } from 'react-router-dom'
 
 
 
+
 function HomePage() {
-  
+
   const navigate = useNavigate();
   const handleViewPlants = () => {
     navigate('/species-list')
    }
 
-
+ const handleSearch = (term) => {
+    navigate(`/species-list?q=${term}`);
+  };
   
   return (
     <>
@@ -21,7 +24,7 @@ function HomePage() {
     <p className='description'>Where you can search and learn about lots of different plants!</p>
 
 
-    <SearchBar />
+    <SearchBar onSearch={handleSearch} />
 
     <button className='viewPlants' onClick={handleViewPlants}>View Plants</button>
     </>

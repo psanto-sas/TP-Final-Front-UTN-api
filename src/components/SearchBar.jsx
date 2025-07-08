@@ -14,7 +14,7 @@ function SearchBar({onSearch}) {
   };
   return (
     <form className='searchForm' onSubmit={handleSubmit}>
-      <input type="text" className='searchInput' placeholder='Search...'
+      <input type="text" id='searchInput' placeholder='Search...'
       value={input} onChange={ (e) =>{
         setInput(e.target.value) }}
        />

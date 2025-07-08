@@ -9,7 +9,7 @@
     width: 20%;
 }
 
-.searchInput{
+#searchInput{
     color: #000;
     font-family: var(--global-font);
     font-size: var(--p-size);

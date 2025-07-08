@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
-const usePerenualAPI = () =>{
-    console.log('funciona')
+const usePerenualAPI = (initialSearchTerm = '') =>{
+    console.log('funciona');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [plants, setPlants] = useState([]);
 const [currentPage, setCurrentPage] = useState(1);
-const [lastPage, setLastPage] = useState(null)
-const [searchTerm, setSearchTerm] = useState('')
+const [lastPage, setLastPage] = useState(null);
+const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
 
     const apiKey = import.meta.env.VITE_PERENUAL_API_KEY;
     const URL = `${import.meta.env.VITE_PERENUAL_BASE_URL}-list?key=${apiKey}&page=${currentPage}${searchTerm ? `&q=${searchTerm}`: ''}`;
@@ -22,7 +22,7 @@ const [searchTerm, setSearchTerm] = useState('')
             const response = await fetch(URL);
 
             if(!response.ok){
-                return new Error(`Http error! Status: ${response.status}`)
+                throw new Error(`Http error! Status: ${response.status}`)
             }
 
             const datos = await response.json();
@@ -41,7 +41,7 @@ const [searchTerm, setSearchTerm] = useState('')
 
    useEffect (() => {
         if(URL){
-            fetchPlants(URL)
+            fetchPlants()
         } else {
             setError( new Error('The .env that has the url of the API is not defined in the enviromental variables'))
             setLoading(false)

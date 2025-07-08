@@ -3,15 +3,16 @@ import usePerenualAPI from '../hooks/usePerenualAPI.js'
 import Pagination from '../components/Pagination.jsx'
 import Plants from '../components/Plants.jsx'
 import SearchBar from '../components/SearchBar.jsx'
-
+import { useSearchParams } from 'react-router-dom'
 
 
 function PlantPage() {
   
-  //datos del hook
-  const {plants, loading, error, setSearchTerm, onPrevious, onNext } = usePerenualAPI( );
+   const [searchParams, setSearchParams] = useSearchParams();
+   const searchQuery = searchParams.get('q') || '';
   
-
+  //datos del hook
+  const {plants, loading, error, setSearchTerm, onPrevious, onNext } = usePerenualAPI(searchQuery);
 
   if(loading){
     return (
@@ -22,7 +23,6 @@ function PlantPage() {
       </>
     )
   }
-
   if(error){
     return(
       <>
@@ -31,12 +31,15 @@ function PlantPage() {
       </>
     )
   }
-
+  const handleSearch = (term) => {
+    setSearchParams({ q: term });
+    setSearchTerm(term); // También actualizás el estado en el hook
+  };
   return (
   <>
   <div className='header'>
     <h1 className='title'>Plants</h1>
-    <SearchBar onSearch={setSearchTerm} />
+    <SearchBar onSearch={handleSearch} />
     </div>
     <div className='container'>
       <Pagination onNext={onNext} onPrevious={onPrevious} />
@@ -46,5 +49,4 @@ function PlantPage() {
   </>
   )
 }
-
 export default PlantPage
