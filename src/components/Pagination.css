@@ -1,0 +1,24 @@
+@import url('../root.css');
+
+.pagination{
+    list-style: none;
+    margin-top: 2rem;
+    font-family: var(--global-font);
+    display: flex;
+    column-gap: 20px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    }
+.pagination > li{
+    background-color: #0193f4;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px #0193f4 solid;
+    cursor: pointer;
+    transition: transform 0.2s ease-in;
+}
+
+.pagination > li:hover{
+    transform: translateY(-3px);
+}

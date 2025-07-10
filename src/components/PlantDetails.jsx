@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import usePlantDetails from '../hooks/usePlantDetails';
 import imgFallback from '../assets/planta-respaldo.avif'
-
+import './PlantDetails.css'
 
 function PlantDetails() {
 
@@ -26,10 +26,10 @@ function PlantDetails() {
     </div>
     )
    }
- if(!plant){
+ if(loading === true && !plant){
   return(
     <div className='errorPlantText'>
-      <p>Plant was not found</p>
+      <p>Loading plant</p>
       <button className='btnBackList' 
       onClick={() => navigate("/species-list")}>Go back to List</button>
     </div>
@@ -48,19 +48,21 @@ function PlantDetails() {
  }
 
   return (
-    <div className='container'>
+    <div className='container2'>
       <div className='plantImg'>
-        <img src={plant.default_image?.regular_url || imgFallback } />
+        <img className='imgDetail' src={plant.default_image?.regular_url || imgFallback } />
          </div>
       <div className='plantInfo'>
-        <h3>{plant.common_name}</h3>
-        <h5>{plant.scientific_name[0]}</h5>
-        <p>{plant.description}</p>
-        <p>Genus: {plant.genus}</p>
-        <p>Type: {plant.type}</p>
+        <h3 id='detailTitle'>{plant.common_name}</h3>
+        <h5 id='detailSN'>"{plant.scientific_name[0]}"</h5>
+        <p className='detail'>{plant.description}</p>
+        <p className='detail'>Genus: {plant.genus}</p>
+        <p className='detail'>Type: {plant.type}</p>
         {poisonous()}
-        <button className='btnBackList' 
-      onClick={() => navigate("/species-list")}>Go back to List</button>
+        <div className='divBTN'>
+          <p className='btnBackList' 
+           onClick={() => navigate("/species-list")}>Go back to List</p>
+        </div>
          </div>
     </div>
   )

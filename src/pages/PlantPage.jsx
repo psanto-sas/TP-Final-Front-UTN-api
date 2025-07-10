@@ -3,13 +3,14 @@ import usePerenualAPI from '../hooks/usePerenualAPI.js'
 import Pagination from '../components/Pagination.jsx'
 import Plants from '../components/Plants.jsx'
 import SearchBar from '../components/SearchBar.jsx'
-import { useSearchParams } from 'react-router-dom'
-
+import { useSearchParams, Link } from 'react-router-dom'
+import './PlantPage.css'
 
 function PlantPage() {
+
   
-   const [searchParams, setSearchParams] = useSearchParams();
-   const searchQuery = searchParams.get('q') || '';
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.get('q') || '';
   
   //datos del hook
   const {plants, loading, error, setSearchTerm, onPrevious, onNext } = usePerenualAPI(searchQuery);
@@ -35,17 +36,27 @@ function PlantPage() {
     setSearchParams({ q: term });
     setSearchTerm(term); // También actualizás el estado en el hook
   };
+  const handleClearSearch = ()=>{
+    setSearchParams({});
+    setSearchTerm('');
+  }
+
   return (
   <>
   <div className='header'>
-    <h1 className='title'>Plants</h1>
+    <h1 className='title'><Link className='linkBTH' to='/'>Plants</Link></h1>
     <SearchBar onSearch={handleSearch} />
+    <p className='btnClearSearch' 
+      onClick={handleClearSearch}>Clear Search</p>
     </div>
-    <div className='container'>
+    <div className='container1'>
       <Pagination onNext={onNext} onPrevious={onPrevious} />
       <Plants plants={plants}/>
       <Pagination onNext={onNext} onPrevious={onPrevious} />
     </div>
+    <footer>
+      <p className="apiLink">Perenual API: <a className='linkFooter' target='_blank' href="https://perenual.com/docs/api">https://perenual.com/docs/api</a></p>
+    </footer>
   </>
   )
 }

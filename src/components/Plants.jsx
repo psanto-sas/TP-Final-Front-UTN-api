@@ -24,11 +24,12 @@ function Plants({plants}) {
           <div key={plant.id} className="card" onClick={() => navigate(`/species/details/${plant.id}`)}>
             <img src={plant.default_image?.regular_url || imgFallback } alt="imagen card" 
             className="imgCard" />
+            <div className="cardBody">
             <h5 className="cardTitle">{plant.common_name}</h5>
             <p className='cardData'>Scientific name: {plant.scientific_name}</p>
-            <p className='cardData'>Genus: {plant.genus}</p>
+            <p className='cardGenus'>Genus: {plant.genus}</p>
             <p className='cardData'>Other name: {plant.other_name?.length > 0 ? plant.other_name.join(", ") : "none"}</p>
-            
+            </div>
           </div>
         
       ))}

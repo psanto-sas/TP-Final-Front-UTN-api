@@ -17,7 +17,7 @@ useEffect(()=>{
     };
     const fetchPlant = async ()=> {
         setError(null);
-        setLoading(false);
+        setLoading(true);
         try {
             const res = await fetch(URL)
             if(!res.ok){

@@ -4,30 +4,50 @@
     display: flex; 
     flex-direction: row; 
     flex-wrap: wrap; 
+    align-items: center;
+    justify-content: center;
     column-gap: 10px;
     row-gap: 20px;
-    width: 100%
+    width: 95%
 }
 .card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: space-around; */
+    justify-content: space-around;
     width: 15vw;
-    height: 400px;
-    padding: 5px;
+    height: 415px;
+    padding: 7px 5px 5px 5px;
+    border-radius: 10px;
     color: var(--global-font-color);
     font-family: var(--global-font);
-    background-color: blueviolet;
+    background-color: #000;
+    cursor: pointer;
 }
 .imgCard {
-    width: 14vw;
-    height: 275px;
+    height: 250px;
+    width: 95%;
+    border-radius: 10px;
+}
+.cardBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
 }
 .cardTitle{
-    margin: 5px 0 5px 0;
+    display: flex;
+    height: 38px;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    margin: 5px 0 0 0;
 }
 .cardData{
+    height: 35px;
     margin: 5px 0 5px 0;
     text-align: center;
+}
+.cardGenus{
+    margin: 5px 0;
 }

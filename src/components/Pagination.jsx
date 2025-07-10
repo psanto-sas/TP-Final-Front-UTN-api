@@ -1,5 +1,6 @@
-import React from 'react'
-
+import React from 'react';
+import './Pagination.css'
+import Plants from './Plants';
 
 function Pagination({ onPrevious, onNext}) {
   // currentPage, lastPage
@@ -11,10 +12,12 @@ function Pagination({ onPrevious, onNext}) {
   }
   
   return (
-    <div>
-      <button className="previous" onClick={handlePrevious}>Previous Page</button>
-      <button className='next' onClick={handleNext}>Next Page</button>
-    </div>
+    <>
+      <ul className='pagination'>
+      <li onClick={handlePrevious}>Previous Page</li>
+      <li onClick={handleNext}>Next Page</li>
+      </ul>
+    </>
   )
 }
 

@@ -1,12 +1,57 @@
 @import url(../index.css);
 @import url(../root.css);
 
-.loadingText{
-    font-family: var(--global-font);
-    font-size: var(--p-size);
-}
-.errorText{
+.loadingText, .errorText{
+    margin-top: 20px;
     font-family: var(--global-font);
     font-size: var(--p-size);
 }
 
+.header{
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.linkBTH{
+    text-decoration: none;
+    color: var(--global-font-color);
+}
+
+.btnClearSearch{
+    font-family: var(--global-font);
+    background-color: #0193F4;
+    padding: 5px;
+    margin-top: 16px;
+    margin-bottom: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in;
+}
+.btnClearSearch:hover{
+    transform: translateY(-3px);
+}
+.container1{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4vh;
+}
+
+footer{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--global-font);
+    width: 100%;
+    background-color: #000;
+}
+.linkFooter{
+    color: var(--global-font-color);
+    text-decoration: none;
+}
