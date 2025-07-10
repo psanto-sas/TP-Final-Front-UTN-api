@@ -34,7 +34,7 @@ function PlantPage() {
   }
   const handleSearch = (term) => {
     setSearchParams({ q: term });
-    setSearchTerm(term); // También actualizás el estado en el hook
+    setSearchTerm(term); 
   };
   const handleClearSearch = ()=>{
     setSearchParams({});
